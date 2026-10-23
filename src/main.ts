@@ -5,7 +5,33 @@ const spin = document.querySelector<HTMLButtonElement>("#spin")!;
 const face = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 face.setAttribute("viewBox", "0 0 200 200");
 face.setAttribute("role", "img");
-face.setAttribute("aria-label", "A neutral face");
+face.setAttribute("aria-label", "A Farmer's Face");
+
+//field image sourced from https://stock.adobe.com/search?k=grassy+field&asset_id=365738449
+import fieldUrl from "../assets/GrassyField.jpg?no-inline";
+const fieldImage = document.createElementNS(
+  "http://www.w3.org/2000/svg",
+  "image",
+);
+fieldImage.setAttribute("href", fieldUrl);
+fieldImage.setAttribute("x", "-59");
+fieldImage.setAttribute("y", "-100");
+fieldImage.setAttribute("width", "300");
+fieldImage.setAttribute("height", "450");
+face.append(fieldImage);
+
+//shirt image sourced from https://www.llbean.com/buy/womens-red-plaid-shirts
+import shirtUrl from "../assets/shirt image.png?no-inline";
+const shirtImage = document.createElementNS(
+  "http://www.w3.org/2000/svg",
+  "image",
+);
+shirtImage.setAttribute("href", shirtUrl);
+shirtImage.setAttribute("x", "20");
+shirtImage.setAttribute("y", "80");
+shirtImage.setAttribute("width", "150");
+shirtImage.setAttribute("height", "150");
+face.append(shirtImage);
 
 const head = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
 head.setAttribute("cx", "100");
