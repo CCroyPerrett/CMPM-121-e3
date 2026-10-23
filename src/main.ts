@@ -60,7 +60,6 @@ mouth.setAttribute("stroke-linecap", "round");
 face.append(mouth);
 
 portrait.append(face);
-
 spin.addEventListener("click", () => {
   // Restart rather than accumulate simultaneous animations on repeated clicks.
   for (const animation of face.getAnimations()) animation.cancel();
