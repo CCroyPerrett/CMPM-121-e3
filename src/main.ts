@@ -8,16 +8,34 @@ face.setAttribute("role", "img");
 face.setAttribute("aria-label", "A Shaded, Open-mouthed face");
 
 const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
-const headgradient = document.createElementNS(
+/*const headgradient = document.createElementNS(
   "http://www.w3.org/2000/svg",
-  "linearGradient",
+  "radialGradient",
 );
 headgradient.setAttribute("id", "headgradient");
 headgradient.setAttribute("x1", "0%");
 headgradient.setAttribute("y1", "0%");
 headgradient.setAttribute("x2", "80%");
-headgradient.setAttribute("y2", "80%");
+headgradient.setAttribute("y2", "80%");*/
+const headgradient = document.createElementNS(
+  "http://www.w3.org/2000/svg",
+  "path",
+);
+headgradient.setAttribute("id", "headgradient");
+const bezierPathData = "M 10 80 C 40 10, 65 10, 95 80";
+headgradient.setAttribute("d", bezierPathData);
+headgradient.setAttribute("stroke", "blue");
+headgradient.setAttribute("stroke-width", "2");
 
+const headgradient2 = document.createElementNS(
+  "http://www.w3.org/2000/svg",
+  "radialGradient",
+);
+headgradient2.setAttribute("id", "headgradient2");
+headgradient2.setAttribute("x1", "0%");
+headgradient2.setAttribute("y1", "0%");
+headgradient2.setAttribute("x2", "80%");
+headgradient2.setAttribute("y2", "80%");
 const stop3 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
 stop3.setAttribute("offset", "0%");
 stop3.setAttribute("stop-color", "#f7ff5a");
@@ -25,9 +43,9 @@ stop3.setAttribute("stop-color", "#f7ff5a");
 const stop4 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
 stop4.setAttribute("offset", "100%");
 stop4.setAttribute("stop-color", "#7b784b");
-headgradient.appendChild(stop3);
-headgradient.appendChild(stop4);
-defs.appendChild(headgradient);
+headgradient2.appendChild(stop3);
+headgradient2.appendChild(stop4);
+defs.appendChild(headgradient2);
 face.appendChild(defs);
 
 const head = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
@@ -36,7 +54,9 @@ head.setAttribute("cy", "100");
 head.setAttribute("rx", "78");
 head.setAttribute("ry", "86");
 //head.setAttribute("fill", "#f3cf87");
-head.setAttribute("fill", "url(#headgradient)");
+head.setAttribute("fill", "url(#headgradient2)");
+head.setAttribute("d", "url(#headgradient)");
+//head.setAttribute("fill", "#f3cf87");
 head.setAttribute("stroke", "#302c29");
 head.setAttribute("stroke-width", "4");
 face.append(head);
